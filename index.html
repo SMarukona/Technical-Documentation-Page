@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <h1>WordPress Theme Documentation</h1>
+        <ul>
+            <li><a class="nav-link" href="#Getting-Started"> Getting Started</a> </li>
+            <li><a class="nav-link" href="#Theme-Basics"> Theme Basics</a></li>
+            <li><a class="nav-link" href="#Block-themes"> Block themes</a></li>
+            <li><a class="nav-link" href="#Classic-themes"> Classic themes</a></li>
+            <li><a class="nav-link" href="#Theme-Security"> Theme Security</a></li>
+            <li><a class="nav-link" href="#Advanced-Theme-Topics"> Advanced Theme Topics</a></li>
+            <li><a class="nav-link" href="#Releasing-Your-Theme"> Releasing Your Theme</a></li>
+            <li><a class="nav-link" href="#References"> References</a></li>
+            <li><a class="nav-link" href="#Credits"> Credits</a></li>
+            <li><a class="nav-link" href="#Feedback"> Feedback</a></li>
+        </ul>
+    </nav>
+    <main class='main-doc' id="main-doc">
+        <section class="main-section" id="Getting-Started">
+          <h2>Getting Started</h2>
+          <p>In this opening chapter, we’ll take a look at <a href="https://developer.wordpress.org/theme/getting-started/what-is-a-theme/"> WordPress themes are</a> and how they work. Then, we’ll discuss <a href='https://developer.wordpress.org/theme/getting-started/wordpress-licensing-the-gpl/'>the GPL</a>, the software license used for WordPress and all of the themes in the WordPress theme directory.</p>
+          <p>Next, we’ll look at some of the tools you’ll need in your WordPress theme development toolkit and teach you how to <a href="https://developer.wordpress.org/theme/getting-started/setting-up-a-development-environment/">a local development environment</a> .</p>
+          <p>We’ll finish up this chapter by looking at a few solid <a href='https://developer.wordpress.org/themes/getting-started/theme-development-examples/'>WordPress theme examples.</a> </p>
+        </section>
+        <section class="main-section" id="Theme-Basics">
+          <h2>Theme Basics</h2>
+          <p>In Chapter 1, you saw an overview of a theme. You also learned how you can start developing a theme.</p>
+          <p>In this chapter, you’ll begin learning how to build a theme properly. The anatomy of a theme and its parts will be broken down and explained. You’ll begin by understanding the concepts of building a theme by looking at <a href='https://developer.wordpress.org/themes/basics/template-files/'>Theme files</a> and <a href='https://developer.wordpress.org/themes/basics/post-types/'>post types</a>. Then you’ll learn how to keep your files<a href="https://developer.wordpress.org/themes/basics/organizing-theme-files/">organized</a> within your theme.</p>
+          <p>You’ll also look at <a href="https://developer.wordpress.org/themes/basics/the-loop/">The Loop</a> , which is responsible for pulling content out of the WordPress database.</p>
+          <p>Finally, you’ll learn more about adding features to your theme by <a href='https://developer.wordpress.org/themes/basics/theme-functions/'>using theme functions</a>, <a href="https://developer.wordpress.org/themes/basics/including-css-javascript/">CSS & JavaScript</a>, leveraging <a href='https://developer.wordpress.org/themes/basics/conditional-tags/'>conditional tags</a> to only show content you need, and working with <a href="https://developer.wordpress.org/themes/basics/categories-tags-custom-taxonomies/">taxonomies and creating your own</a>.</p>
+        </section>
+        <section class="main-section" id="Block-themes">
+           <h2>Block themes</h2>
+           <p>A block theme is a type of WordPress theme built using blocks. You can edit all parts of a block theme in the <a href="https://wordpress.org/support/article/site-editor/">Site Editor</a>.</p>
+           <p>WordPress supports block themes from version 5.9. Together with the <a href="https://wordpress.org/support/article/styles-overview/">Style Interface</a>, block themes are part of the new site editing feature. Block themes are sometimes called full site editing themes. <a href='https://developer.wordpress.org/block-editor/getting-started/full-site-editing/'>Learn more about the site editing feature</a>.</p>
+           <p>You may also be interested in reading the <a href="https://wordpress.org/support/article/block-themes/">support article </a> about block themes.</p>
+           <p>In this part of the handbook, you will learn about:</p>
+           <ul>
+            <li>The differences between classic themes and block themes</li>
+            <li>Block theme setup</li>
+            <li>Templates and template parts</li>
+            <li>The theme.json configuration file</li>
+            <li>Converting classic themes to block themes</li>
+           </ul>
+           <p>Prerequisits for this chapter: <a href='https://developer.wordpress.org/themes/basics/'>Theme Basics</a></p>
+           <h3>The benefits of block themes</h3>
+           <p>Why should you create block themes? While WordPress continues to support classic themes, block themes are built to improve scalability and performance.</p>
+           <ul>
+            <li><a href="https://make.wordpress.org/core/2021/07/01/block-styles-loading-enhancements-in-wordpress-5-8/">Block themes enhances loading performance</a> by loading styles only for rendered blocks on a page</li>
+            <li>Block themes are not required to manually enqueue stylesheets for both front-end and editors</li>
+            <li>Theme.json handles all aspects of <a href='https://developer.wordpress.org/reference/functions/add_theme_support/'>add_theme_support()</a></li>
+            <li>Accessibility features such as Skip to content, keyboard navigation, and landmarks are generated automatically without adding additional code</li>
+            <li>With a block theme, the user can edit all parts of their website without code</li>
+            <li>By using the Styles interface, users can customize colors and typography for the website and for the blocks</li>
+           </ul>
+           <h3>Differences and similarities between classic themes and block themes</h3>
+           <p>Many concepts and features are the same for both classic and block themes, and in some cases, the handbook will refer to a chapter about classic themes.</p>
+           <p>For theme developers that are accustomed to creating classic themes, there is a comparison table:
+
+        </p>
+           <table>
+            <thead>
+              <tr>
+                <td>Classic themes:</td>
+                <td>Block themes:</td>
+              </tr>
+            </thead>
+            <tbody>
+             <tr>
+                <td>Uses PHP files to display parts and content.</td>
+                <td>Uses HTML files to display blocks.
+                    Uses PHP files as a fallback if WordPress can not find the HTML file.
+                    single.html is the equivalent of using single.php.</td>
+             </tr>
+             <tr>
+                <td>Uses the <a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">template hierarchy</a></td>
+                <td>Uses the template hierarchy</td>
+             </tr>
+             <tr>
+                <td>Uses PHP functions such as template tags to display content</td>
+                <td>Uses blocks for everything.
+                    The post content block is the equivalent of using the_content().</td>
+             </tr>
+             <tr>
+                <td>Use <a href='https://developer.wordpress.org/apis/handbook/internationalization/'>PHP functions</a> to make text translatable</td>
+                <td>Text in HTML files is not translatable.
+                    Block patterns can use PHP functions to make text translatable.</td>
+             </tr>
+             <tr>
+                <td>Uses PHP functions for <a href='https://developer.wordpress.org/themes/basics/conditional-tags/'>if/else conditionals</a></td>
+                <td>Uses block settings to achieve different results</td>
+             </tr>
+            </tbody>
+           </table>
+        </section>
+        <section class="main-section" id="Classic-themes">
+            <h2>Classic themes</h2>
+            <p>In this section you will find information about developing classic WordPress themes.</p>
+        </section>
+        <section class="main-section" id="Theme-Security">
+            <h2>Theme Security</h2>
+            <p>In this section you will find information about developing classic WordPress themes.</p>
+        </section>
+        <section class="main-section" id="Advanced-Theme-Topics">
+            <h2>Theme Privacy</h2>
+            <p>In WordPress 4.9.6, several tools were introduced to help sites meet the requirements of the new European Union’s new GDPR (General Data Protection Regulation) laws. This article details what theme authors need to know about compatibility with the features.</p>
+            <p>Theme authors should test their themes to confirm that there are no design conflicts between the features and their themes detailed below.</p>
+            <h3>Privacy Policy Pages</h3>
+            <p>WordPress 4.9.6 introduced the ability to select a page as a privacy policy for a site in the Settings > Privacy section of the admin area. For new sites, a privacy policy template page will automatically be created in draft status.</p>
+            <p>To link to the selected page in plugins and themes, three template tags have been added:</p>
+            <ul>
+                <li><a href='https://developer.wordpress.org/reference/functions/get_privacy_policy_url/'>get_privacy_policy_url()</a> – Retrieves the URL to the privacy policy page.</li>
+                <li><a href='the_privacy_policy_link() – Displays the privacy policy link with formatting, when applicable.'>the_privacy_policy_link() –</a>  Displays the privacy policy link with formatting, when applicable.</li>
+                <li><a href='get_the_privacy_policy_link() – Returns the privacy policy link with formatting, when applicable.'>get_the_privacy_policy_link() </a> – Returns the privacy policy link with formatting, when applicable.</li>
+            </ul>
+            <h3>Example</h3>
+            <p>The following example will display the privacy policy link surrounded by a div element</p>
+            <div>
+                if ( function_exists( 'the_privacy_policy_link' ) ) {
+                    the_privacy_policy_link( '<div>', '</div>' );
+                 }
+            </div>
+            <h3>Commenter Cookie Opt-Ins</h3>
+            <p>When a logged out user comments on a post, they are asked for their name, email, and website. This information is stored locally in the commenter’s browser for two purposes:</p>
+            <ol>
+                <li>When they leave another comment on the site, their name, email, and website will be pre-populated into the respective fields.</li>
+                <li>If their comment is held for moderation, they can return to that post and remove the comment before it is approved.</li>
+            </ol>
+            <p>The information stored in this cookie is for convenience and is not essential. Therefore, the user needs to be given the choice to opt in or opt out of the storage of this data.</p>
+            <p>For this reason, a checkbox has been added to the comment form that allows commenters to opt-in to storing this data in the cookie. This checkbox will be unchecked by default, as opt-in is an action the user must explicitly approve.</p>
+            <p>The new checkbox field is automatically added to comment forms displayed using the <a href='https://developer.wordpress.org/reference/functions/comment_form/'>comment_form()</a> function inside a p.comment-form-cookies-consent element.</p>
+            <p>While most themes will not require any action, it is recommended that you double check that the input and label does not require CSS adjustments in custom themes.</p>
+        </section>
+        <section class="main-section" id="Releasing-Your-Theme">
+            <p>This section covers the requirements and submission process for releasing your theme into the <a href='https://wordpress.org/themes/'>WordPress Theme Directory</a>. If you’ve followed the instructions in this handbook, your theme is almost ready for release into the directory.</p>
+            <p>The first requirement to releasing your theme is to make sure you have – at a minimum – the <a href='https://developer.wordpress.org/themes/release/required-theme-files/'>required theme files</a> before submitting your theme for review.</p>
+            <p>Once you’ve confirmed the required theme files, thorough testing of the theme – including content – must be completed. Following the theme review guidelines will help ensure acceptance of your theme.</p>
+            <p>After completing everything above, having the proper <a href='https://developer.wordpress.org/themes/release/writing-documentation/' >documentation</a> is the final step before <a href='https://developer.wordpress.org/themes/release/submitting-your-theme-to-wordpress-org/'>submitting your theme for approval</a>. After submitting your theme for review, the theme reviewer may request other changes to your theme.</p>
+            <h3>Important Notices</h3>
+            <p>Themes that have 3 or more distinct issues may be closed as not-approved. Theme authors are encouraged to review the <a href='https://developer.wordpress.org/themes/release/theme-review-guidelines/'>Theme Review Guidelines</a>.</p>
+            <h3>First Two Checks</h3>
+            <ol>
+                <li>
+                    <h4>Commonly missed requirements</h4>
+                    <p>Here are some of the commonly missed requirements at the initial review. Themes with incomplete requirements may be closed as not-approved.</p>
+                    <ul>
+                        <li>Themes must be compatible with the GNU General Public License. GPLv2 or later is strongly recommended.</li>
+                        <li>Themes are not allowed to include plugins and non-design related functionalities such as forms. Anything that will be deleted when user switches a theme should not be included.</li>
+                        <li>Shortcodes, custom post types, and custom blocks are not allowed in themes.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Testing your theme with Theme Check Plugin</h4>
+                    <p>Theme Check plugin is an easy way to test your theme and ensure it’s up to spec with the latest theme review standards. Learn more about Theme Check Plugin.</p>
+                </li>
+            </ol>
+        
+        </section>
+        <section class="main-section" id="References">
+            <h2>References</h2>
+            <p>This section contains lists of <a href='https://developer.wordpress.org/themes/references/list-of-template-tags/'>Template Tags</a> and <a href='https://developer.wordpress.org/themes/references/list-of-conditional-tags/'>Conditional Tags</a>.</p>
+            <p><a href='https://developer.wordpress.org/themes/references/list-of-template-tags/'>Template Tags</a> are used in your Template Files to display information dynamically or otherwise customize your site.</p>
+            <p><a href="https://developer.wordpress.org/themes/references/list-of-conditional-tags/">Conditional Tags</a> are a boolean data type that can be used in your Template Files to alter the display of content depending on the conditions that the current page matches.</p>
+        </section>
+        <section class="main-section" id="Credits">
+            <h2>Credits</h2>
+            <ul>
+                <li><a href="https://profiles.wordpress.org/ancawonka/">@ancawonka</a></li>
+                <li><a href="https://profiles.wordpress.org/Anthonynotes/">@Anthonynotes</a></li>
+                <li><a href="https://profiles.wordpress.org/atachibana/">@atachibana</a></li>
+                <li><a href="https://profiles.wordpress.org/austingunter/">@austingunter</a></li>
+                <li><a href="https://profiles.wordpress.org/bandonrandon/">@bandonrandon</a></li>
+                <li><a href="https://profiles.wordpress.org/utz119/">@utz119</a></li>
+                <li><a href="https://profiles.wordpress.org/BFTrick/">@BFTrick</a></li>
+                <li><a href="https://profiles.wordpress.org/BigActual/">@BigActual</a></li>
+                <li><a href="https://profiles.wordpress.org/bkozma/">@bkozma</a></li>
+                <li><a href="https://profiles.wordpress.org/boborchard/">@boborchard</a></li>
+            </ul>
+        </section>
+        <section class="main-section" id="Feedback">
+            <h2>Feedback</h2>
+            <h3>Giving Feedback</h3>
+            <p>We welcome suggestions to improve the article, whether it is to add new topics or to rectify mistakes, you’re invited to help.</p>
+            <p>You can do so in the following ways</p>
+            <ul>
+                <li>Connect to <a href='https://make.wordpress.org/chat/'>Slack</a> and join #docs and make your suggestion there, one of the Documentation Team members will help</li>
+                <li>Join the <a href='https://make.wordpress.org/docs/' >Documentation Team</a> as an editor and edit away!</li>
+            </ul>
+            <p>In-page feedback forms are currently planned for the handbooks.</p>
+        </section>
+    </main>
+</body>
+</html>
