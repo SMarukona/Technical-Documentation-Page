@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -94,4 +95,32 @@ main{
 
 main ul,main ol{
     padding-left: 2rem;
+}
+
+table{
+    border: 1px solid  #ececec;
+    border-collapse: collapse;
+}
+
+table> thead> tr> th{
+    color: var(--primary-black);
+    padding: .5rem;
+}
+
+tr, td,th {
+    border: 1px solid #e4dede;
+}
+
+table> tbody> tr> td{
+    color: var(--primary-black);
+    opacity: .9;
+    padding: .5rem;
+}
+
+#Advanced-Theme-Topics div{
+    background-color: rgb(40, 44, 52);
+    color: var(--primary-white);
+    padding: 1rem;
+    color:var(--primary-white);
+    opacity: .9;
 }

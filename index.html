@@ -69,8 +69,8 @@
            <table>
             <thead>
               <tr>
-                <td>Classic themes:</td>
-                <td>Block themes:</td>
+                <th>Classic themes</th>
+                <th>Block themes</th>
               </tr>
             </thead>
             <tbody>
@@ -108,6 +108,10 @@
         <section class="main-section" id="Theme-Security">
             <h2>Theme Security</h2>
             <p>In this section you will find information about developing classic WordPress themes.</p>
+            <h3>Validating Data</h3>
+            <p>Untrusted data comes from many sources (users, third party sites, even your own database!) and all of it needs to be checked before it’s used.</p>
+            <p>Remember: Even admins are users, and users will enter incorrect data, either on purpose or accidentally. It’s your job to protect them from themselves.</p>
+        
         </section>
         <section class="main-section" id="Advanced-Theme-Topics">
             <h2>Theme Privacy</h2>
@@ -125,7 +129,7 @@
             <p>The following example will display the privacy policy link surrounded by a div element</p>
             <div>
                 if ( function_exists( 'the_privacy_policy_link' ) ) {
-                    the_privacy_policy_link( '<div>', '</div>' );
+                    the_privacy_policy_link( '&nbspdiv&nbsp', '&nbsp/div&nbsp' );
                  }
             </div>
             <h3>Commenter Cookie Opt-Ins</h3>
